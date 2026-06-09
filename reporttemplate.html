@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bikepark Research Report</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#171a21; --card2:#1d212b; --line:#2a2f3a;
+    --txt:#e8eaed; --muted:#9aa3b2; --accent:#34d399; --accent2:#60a5fa;
+    --green:#22c55e; --blue:#3b82f6; --red:#ef4444; --black:#111827;
+    --warn:#f59e0b; --radius:14px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6f9; --card:#ffffff; --card2:#f0f3f7; --line:#e2e6ec;
+           --txt:#161a20; --muted:#5b6472; --black:#1f2937; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
+  header.report{margin-bottom:28px}
+  header.report h1{font-size:30px;margin:0 0 6px;letter-spacing:-.02em}
+  .meta{color:var(--muted);font-size:14px}
+  .meta b{color:var(--txt)}
+  h2.section{font-size:22px;margin:38px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  /* Overview table */
+  .overview{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--card2);font-weight:600;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  td a{color:var(--accent2)}
+  /* Park cards */
+  .park{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 24px;margin:22px 0}
+  .park h3{font-size:22px;margin:0 0 2px}
+  .park .region{color:var(--muted);font-size:14px;margin-bottom:16px}
+  .grp{margin:18px 0}
+  .grp h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    margin:0 0 8px}
+  .kv{display:grid;grid-template-columns:210px 1fr;gap:6px 18px}
+  .kv dt{color:var(--muted)}
+  .kv dd{margin:0}
+  @media (max-width:620px){.kv{grid-template-columns:1fr}.kv dt{margin-top:8px}}
+  /* difficulty badges */
+  .badges{display:inline-flex;gap:6px;flex-wrap:wrap}
+  .badge{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:999px;
+    font-size:12px;font-weight:600;color:#fff}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:#fff}
+  .b-green{background:var(--green)} .b-blue{background:var(--blue)}
+  .b-red{background:var(--red)} .b-black{background:var(--black)}
+  /* source links + flags */
+  .src{font-size:12px;color:var(--accent2);text-decoration:none;white-space:nowrap}
+  .src:hover{text-decoration:underline}
+  sup.ref a{color:var(--accent2);text-decoration:none;font-weight:600}
+  .nf{color:var(--warn);font-style:italic}
+  .pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;
+    border:1px solid var(--line)}
+  .pill.yes{color:var(--green);border-color:var(--green)}
+  .pill.no{color:var(--muted)}
+  .sources{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);font-size:13px}
+  .sources ol{margin:6px 0 0;padding-left:20px}
+  .sources a{color:var(--accent2);word-break:break-all}
+  footer{margin-top:50px;color:var(--muted);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="report">
+    <h1>Bikepark Research Report</h1>
+    <div class="meta">
+      <b>{{PARK_COUNT}}</b> park(s) &middot; generated {{GENERATED_DATE}} &middot;
+      distances by car from <b>Oskar-Helene-Park 7, 14195 Berlin</b><br>
+      Every value links to a source. Items that could not be verified are marked
+      <span class="nf">Not found</span>.
+    </div>
+  </header>
+
+  <h2 class="section">Overview</h2>
+  <div class="overview">
+    <table>
+      <thead>
+        <tr>
+          <th>Park</th><th>Region</th><th>Drive from Berlin</th><th>Lift</th>
+          <th>Season</th><th>Gravity Card</th><th>Difficulty spread</th>
+          <th>Vertical</th><th>Best for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- OVERVIEW_ROWS -->
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section">Parks in detail</h2>
+  <!-- PARK_SECTIONS -->
+
+  <footer>
+    Compiled by the bikepark-researcher agent. Facts are sourced as of the dates noted;
+    verify season &amp; pricing on the operator's site before travel.
+  </footer>
+</div>
+</body>
+</html>
