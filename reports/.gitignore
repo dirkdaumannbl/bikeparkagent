@@ -1,0 +1,3 @@
+# Generated reports are build artifacts: keep this folder tracked, ignore its contents.
+*
+!.gitignore
